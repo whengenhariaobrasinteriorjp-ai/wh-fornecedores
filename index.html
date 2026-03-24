@@ -746,8 +746,8 @@ body{font-family:'Barlow',sans-serif;background:var(--bk);color:var(--wh);min-he
 <div class="ws-wrap">
   <h2>🌐 Busca de Fornecedores Online</h2>
 <div style="font-size:13px;color:#374151;line-height:1.6;">
-      Para ativar a busca com IA, configure a chave de API da Anthropic no Netlify:<br>
-      <strong>1.</strong> Acesse o painel do Netlify → seu site → <strong>Site configuration → Environment variables</strong><br>
+      Para ativar a busca com IA, configure a chave de API da Anthropic no Vercel:<br>
+      <strong>1.</strong> Acesse o painel do Vercel → seu projeto → <strong>Settings → Environment Variables</strong><br>
       <strong>2.</strong> Clique em <strong>"Add a variable"</strong><br>
       <strong>3.</strong> Key: <code style="background:#F3F4F6;padding:2px 6px;font-size:12px">ANTHROPIC_API_KEY</code> &nbsp;|&nbsp; 
       Value: sua chave (começa com <code style="background:#F3F4F6;padding:2px 6px;font-size:12px">sk-ant-...</code>)<br>
@@ -755,7 +755,7 @@ body{font-family:'Barlow',sans-serif;background:var(--bk);color:var(--wh);min-he
       <strong>5.</strong> Pronto! A busca com IA estará funcionando.
     </div>
     <div style="margin-top:8px;font-size:11px;color:#9CA3AF;">
-      💡 A chave fica segura no servidor Netlify — nunca aparece no navegador dos usuários.
+      💡 A chave fica segura no servidor Vercel — nunca aparece no navegador dos usuários.
       Obtenha sua chave em: <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:#3B82F6">console.anthropic.com</a>
     </div>
     <button onclick="document.getElementById('api-setup-banner').style.display='none'" 
@@ -1919,7 +1919,7 @@ body{font-family:'Barlow',sans-serif;background:var(--bk);color:var(--wh);min-he
   <div class="orc-section" id="orc-pdf">
     <div class="orc-list">
       <div class="orc-section-title">📄 Levantamento Automático — Upload de PDF</div>
-      <p style="font-size:12px;color:var(--g4);margin-bottom:14px;line-height:1.6;">A IA lê o PDF do projeto e extrai materiais, quantidades e especificações. Melhor resultado com projetos que têm <strong>tabela de materiais ou memorial descritivo</strong>. Requer <span style="color:var(--y)">ANTHROPIC_API_KEY</span> configurada no Netlify.</p>
+      <p style="font-size:12px;color:var(--g4);margin-bottom:14px;line-height:1.6;">A IA lê o PDF do projeto e extrai materiais, quantidades e especificações. Melhor resultado com projetos que têm <strong>tabela de materiais ou memorial descritivo</strong>. Requer <span style="color:var(--y)">ANTHROPIC_API_KEY</span> configurada no Vercel.</p>
       <div class="pdf-drop" id="pdf-drop-zone" onclick="document.getElementById('pdf-file-input').click()"
            ondragover="event.preventDefault();this.classList.add('drag')"
            ondragleave="this.classList.remove('drag')"
@@ -2286,7 +2286,7 @@ async function runAISearch() {
     if (!response.ok) {
       const err = await response.json().catch(() => ({}));
       if (response.status === 404) {
-        throw new Error('Publique o novo ZIP no Netlify (inclui a função de busca).');
+        throw new Error('Função de busca não encontrada. Verifique o deploy no Vercel.');
       }
       throw new Error(err.error || `Erro HTTP ${response.status}`);
     }
@@ -2614,7 +2614,7 @@ async function runEstimativa() {
       body: JSON.stringify({ produto: produto + (cat ? ` (${cat})` : ''), quantidade: qtd, unidade: un, cidade })
     });
 
-    if (resp.status === 404) throw new Error('Publique o novo ZIP no Netlify (inclui a função de estimativa).');
+    if (resp.status === 404) throw new Error('Função de estimativa não encontrada. Verifique o deploy no Vercel.');
     if (!resp.ok) {
       const err = await resp.json().catch(() => ({}));
       throw new Error(err.error || `Erro HTTP ${resp.status}`);
@@ -3793,7 +3793,7 @@ async function handlePdfFile(file) {
     });
 
     if(response.status===404){
-      throw new Error('Função de extração não encontrada. Publique o novo ZIP no Netlify.');
+      throw new Error('Função de extração não encontrada. Verifique o deploy no Vercel.');
     }
     if(!response.ok){
       const err=await response.json().catch(()=>({}));
