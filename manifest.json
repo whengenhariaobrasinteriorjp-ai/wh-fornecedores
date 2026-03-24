@@ -1,0 +1,25 @@
+{
+  "name": "WH Engenharia — Fornecedores",
+  "short_name": "WH Fornec.",
+  "description": "Central de fornecedores e fichas técnicas WH Engenharia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#F7BA0B",
+  "orientation": "any",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
