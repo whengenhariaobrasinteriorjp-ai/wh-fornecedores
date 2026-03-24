@@ -745,26 +745,7 @@ body{font-family:'Barlow',sans-serif;background:var(--bk);color:var(--wh);min-he
 <div class="panel" id="t4">
 <div class="ws-wrap">
   <h2>🌐 Busca de Fornecedores Online</h2>
-<div style="font-size:13px;color:#374151;line-height:1.6;">
-      Para ativar a busca com IA, configure a chave de API da Anthropic no Vercel:<br>
-      <strong>1.</strong> Acesse o painel do Vercel → seu projeto → <strong>Settings → Environment Variables</strong><br>
-      <strong>2.</strong> Clique em <strong>"Add a variable"</strong><br>
-      <strong>3.</strong> Key: <code style="background:#F3F4F6;padding:2px 6px;font-size:12px">ANTHROPIC_API_KEY</code> &nbsp;|&nbsp; 
-      Value: sua chave (começa com <code style="background:#F3F4F6;padding:2px 6px;font-size:12px">sk-ant-...</code>)<br>
-      <strong>4.</strong> Clique em <strong>Save</strong> → vá em <strong>Deploys → Trigger deploy</strong><br>
-      <strong>5.</strong> Pronto! A busca com IA estará funcionando.
-    </div>
-    <div style="margin-top:8px;font-size:11px;color:#9CA3AF;">
-      💡 A chave fica segura no servidor Vercel — nunca aparece no navegador dos usuários.
-      Obtenha sua chave em: <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:#3B82F6">console.anthropic.com</a>
-    </div>
-    <button onclick="document.getElementById('api-setup-banner').style.display='none'" 
-      style="margin-top:8px;padding:5px 14px;background:#F97316;color:#fff;border:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;cursor:pointer;letter-spacing:1px;">
-      ENTENDIDO ✕
-    </button>
-  </div>
-
-  <!-- AI SEARCH BOX -->
+<!-- AI SEARCH BOX -->
   <div class="ai-search-box">
     <h3>🤖 Buscar Fornecedor com IA + Web</h3>
     <p>Digite o nome ou tipo do fornecedor. A IA pesquisa na web, extrai os dados (telefone, e-mail, CNPJ, cidade) e adiciona diretamente à sua lista.</p>
